@@ -8,6 +8,7 @@ Try it for free: www.gearcity.info
 Or buy it today! http://store.steampowered.com/app/285110
 
 Build Instructions:
+
 -Video Settings Editor requires QT 4.8, please set up QTCreator
    or your favorite IDE to use QT4.8 API.
 -Load files into QTCreator or your favorite IDE*. 
