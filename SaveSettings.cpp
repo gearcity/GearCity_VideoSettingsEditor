@@ -156,7 +156,7 @@ void SaveSettings::save(Ui::MainWindow *ui, QString videoFile, QString volumeFil
      else
         xmlWriter.writeTextElement("Tutorials","false");
 
-     xmlWriter.writeTextElement("FontSize",QString(ui->FontSize_SpinBox->value()));
+     xmlWriter.writeTextElement("FontSize",QString::number(ui->FontSize_SpinBox->value()));
 
      if(ui->BorderlessWindow_CheckBox->isChecked())
         xmlWriter.writeTextElement("Borderless","true");
@@ -168,7 +168,7 @@ void SaveSettings::save(Ui::MainWindow *ui, QString videoFile, QString volumeFil
      else
         xmlWriter.writeTextElement("ld","false");
 
-     xmlWriter.writeTextElement("AutoSave",ui->AutoSave_ComboBox->currentText());
+     xmlWriter.writeTextElement("AutoSave",QString::number(ui->AutoSave_ComboBox->currentIndex()));
 
      if(ui->DeleteOldReports_CheckBox->isChecked())
         xmlWriter.writeTextElement("DeleteOldReports","true");

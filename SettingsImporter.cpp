@@ -68,7 +68,6 @@ SettingsImporter::SettingsImporter(Ui::MainWindow *ui, QString folderName)
  */
 void SettingsImporter::import(Ui::MainWindow *ui, QString videoFile, QString volumeFile, bool start)
 {
-    QStringList fileData;
 
     //Check Base Video File and Reset if not found and start is flagged.
     QFile baseVideoFile(videoFile);
