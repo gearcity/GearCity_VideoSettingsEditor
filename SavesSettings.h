@@ -40,7 +40,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.")*/
 #ifndef SAVESSETTINGS_H
 #define SAVESSETTINGS_H
 
-#include "ui_mainwindow.h"
+#include "ui_MainWindow.h"
 
 class SaveSettings
 {

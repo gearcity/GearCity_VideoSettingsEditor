@@ -28,4 +28,8 @@ HEADERS  += MainWindow.h \
     ResetToDefault.h \
     SavesSettings.h
 
+
+
 FORMS    += MainWindow.ui
+
+

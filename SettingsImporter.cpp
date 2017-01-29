@@ -68,6 +68,7 @@ SettingsImporter::SettingsImporter(Ui::MainWindow *ui, QString folderName)
  */
 void SettingsImporter::import(Ui::MainWindow *ui, QString videoFile, QString volumeFile, bool start)
 {
+    QStringList fileData;
 
     //Check Base Video File and Reset if not found and start is flagged.
     QFile baseVideoFile(videoFile);
@@ -134,7 +135,7 @@ void SettingsImporter::import(Ui::MainWindow *ui, QString videoFile, QString vol
         }
         else
         {
-            #ifdef Q_WS_WIN
+            #if defined(Q_WS_WIN)
              ui->Render_ComboBox->setCurrentIndex(1);
             #else
              ui->Render_ComboBox->setCurrentIndex(0);
@@ -505,6 +506,19 @@ void SettingsImporter::import(Ui::MainWindow *ui, QString videoFile, QString vol
         ui->SaveOnExit_CheckBox->setChecked(true);
     }
 
+    //Disable Hotkeys
+    tmpElement = rootNode.firstChildElement("DisableHotkeys");
+    if(!tmpElement.isNull())
+    {
+      if(tmpElement.text() == "true")
+        ui->DisableHotkeys_Checkbox->setChecked(true);
+      else
+        ui->DisableHotkeys_Checkbox->setChecked(false);
+    }
+    else
+    {
+        ui->DisableHotkeys_Checkbox->setChecked(false);
+    }
 
 
     /*

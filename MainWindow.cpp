@@ -37,7 +37,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.")*/
  * */
 
 #include "MainWindow.h"
-#include "ui_mainwindow.h"
+#include "ui_MainWindow.h"
 #include <QMessageBox>
 #include "PredefinedResolutions.h"
 #include "LanguageFiller.h"
@@ -99,11 +99,11 @@ MainWindow::MainWindow(QWidget *parent) :
   ResetToDefault(ui);
 
   //Import Current Game Settings
-  #ifdef Q_WS_WIN
+  #if defined(Q_WS_WIN)
    SettingsImporter(ui,"../GearCity/Settings/");
-  #elif Q_WS_X
-   SettingsImporter(ui,"../GearCity/Settings/")
-  #elif Q_WS_MACX
+  #elif defined(Q_WS_X11)
+   SettingsImporter(ui,"../GearCity/Settings/");
+  #elif defined(Q_WS_MACX)
   #endif
 
 }
@@ -129,11 +129,12 @@ void MainWindow::aboutProgram()
 /*Save the settings to the GearCity Settings file*/
 void MainWindow::saveVideoSettings()
 {
-    #ifdef Q_WS_WIN
+
+    #if defined(Q_WS_WIN)
      SaveSettings(ui,"../GearCity/Settings/");
-    #elif Q_WS_X
-     SaveSettings(ui,"../GearCity/Settings/")
-    #elif Q_WS_MACX
+    #elif defined(Q_WS_X11)
+     SaveSettings(ui,"../GearCity/Settings/");
+    #elif defined(Q_WS_MACX)
     #endif
 
 }

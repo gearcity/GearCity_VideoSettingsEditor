@@ -46,7 +46,7 @@ SaveSettings::SaveSettings(Ui::MainWindow *ui, QString folderName)
 {
     QString videoFileName = "",volumeFileName=folderName+"Volume.xml";
 
-    #ifdef Q_WS_WIN
+    #if defined(Q_WS_WIN)
         videoFileName = folderName + "VideoConfig.xml";
     #else
         videoFileName = folderName + "LinuxVideoConfig.xml";
@@ -96,7 +96,7 @@ void SaveSettings::save(Ui::MainWindow *ui, QString videoFile, QString volumeFil
 
     xmlWriter.writeStartElement("Video");
 
-    #ifdef Q_OS_WIN
+    #if defined(Q_OS_WIN)
      if(ui->Render_ComboBox->currentIndex() == 0)
      {
          xmlWriter.writeTextElement("RenderSystem","D3D9 RenderSystem");
@@ -168,7 +168,7 @@ void SaveSettings::save(Ui::MainWindow *ui, QString videoFile, QString volumeFil
      else
         xmlWriter.writeTextElement("ld","false");
 
-     xmlWriter.writeTextElement("AutoSave",QString::number(ui->AutoSave_ComboBox->currentIndex()));
+     xmlWriter.writeTextElement("AutoSave",ui->AutoSave_ComboBox->currentText());
 
      if(ui->DeleteOldReports_CheckBox->isChecked())
         xmlWriter.writeTextElement("DeleteOldReports","true");
@@ -184,6 +184,11 @@ void SaveSettings::save(Ui::MainWindow *ui, QString videoFile, QString volumeFil
         xmlWriter.writeTextElement("SaveOnExit","true");
      else
         xmlWriter.writeTextElement("SaveOnExit","false");
+
+     if(ui->DisableHotkeys_Checkbox->isChecked())
+        xmlWriter.writeTextElement("DisableHotkeys","true");
+     else
+        xmlWriter.writeTextElement("DisableHotkeys","false");
 
 
      xmlWriter.writeEndDocument();

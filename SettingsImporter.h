@@ -41,7 +41,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.")*/
 #define SETTINGSIMPORTER_H
 
 #include <QString>
-#include "ui_mainwindow.h"
+#include "ui_MainWindow.h"
 
 class SettingsImporter
 {

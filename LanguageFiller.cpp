@@ -45,41 +45,43 @@ void fillLanguageCombo(QComboBox* langCombo)
 {
   QStringList langList;
 
-  #ifdef Q_WS_WIN
+  #if defined(Q_WS_WIN)
       QString loadDir = "..\\localization\\";
-      QString localNames;
 
-      //Load the folder's info
-      DIR *dir;
-      struct dirent *ent;
-      dir = opendir (loadDir.toStdString().c_str());
-
-      if (dir != NULL) //Directory Exists
-      {
-        //Add all the files and directories within directory to list
-        while ((ent = readdir (dir)) != NULL)
-        {
-          if(strcmp(ent->d_name,".") != 0  &&  strcmp(ent->d_name,"..") != 0)
-          {
-            localNames = ent->d_name;
-            localNames.chop(4);
-            langList.push_back(localNames);
-          }
-        }
-
-         closedir (dir);
-
-       }
-       else
-       {
-         /* Directory Does Not Exist! */
-          return;
-       }
-  #else
-    #ifdef Q_WS_X
-    #elif Q_WS_MACX
-    #endif
+  #elif defined(Q_WS_X11)
+        QString loadDir = "../localization/";
+  #elif defined(Q_WS_MACX)
+        Ogre::String loadDir = OgreFramework::getSingletonPtr()->getMacPath() + "/localization/";
   #endif
+
+        QString localNames;
+
+        //Load the folder's info
+        DIR *dir;
+        struct dirent *ent;
+        dir = opendir (loadDir.toStdString().c_str());
+
+        if (dir != NULL) //Directory Exists
+        {
+          //Add all the files and directories within directory to list
+          while ((ent = readdir (dir)) != NULL)
+          {
+            if(strcmp(ent->d_name,".") != 0  &&  strcmp(ent->d_name,"..") != 0)
+            {
+              localNames = ent->d_name;
+              localNames.chop(4);
+              langList.push_back(localNames);
+            }
+          }
+
+           closedir (dir);
+
+         }
+         else
+         {
+           /* Directory Does Not Exist! */
+            return;
+         }
 
   langCombo->addItems(langList);
 

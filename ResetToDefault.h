@@ -40,7 +40,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.")*/
 #ifndef RESETTODEFAULT_H
 #define RESETTODEFAULT_H
 
-#include "ui_mainwindow.h"
+#include "ui_MainWindow.h"
 
 
     void ResetToDefault(Ui::MainWindow *ui);
