@@ -44,6 +44,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.")*/
 #include "SettingsImporter.h"
 #include "ResetToDefault.h"
 #include "SavesSettings.h"
+#include "OSXHelper.h"
 
 /*Constructor for Main Window*/
 MainWindow::MainWindow(QWidget *parent) :
@@ -104,6 +105,7 @@ MainWindow::MainWindow(QWidget *parent) :
   #elif defined(Q_WS_X11)
    SettingsImporter(ui,"../GearCity/Settings/");
   #elif defined(Q_WS_MACX)
+   SettingsImporter(ui,OSXHelper::getMacPath(0) + "/GearCity/Settings/");
   #endif
 
 }
@@ -135,6 +137,7 @@ void MainWindow::saveVideoSettings()
     #elif defined(Q_WS_X11)
      SaveSettings(ui,"../GearCity/Settings/");
     #elif defined(Q_WS_MACX)
+     SaveSettings(ui,OSXHelper::getMacPath(0) + "/GearCity/Settings/");
     #endif
 
 }
