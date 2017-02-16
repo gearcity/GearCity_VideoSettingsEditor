@@ -44,7 +44,10 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.")*/
 #include "SettingsImporter.h"
 #include "ResetToDefault.h"
 #include "SavesSettings.h"
+
+#if defined(Q_WS_MACX)
 #include "OSXHelper.h"
+#endif
 
 /*Constructor for Main Window*/
 MainWindow::MainWindow(QWidget *parent) :

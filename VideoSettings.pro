@@ -12,8 +12,7 @@ QT += xml
 TARGET = VideoSettings
 TEMPLATE = app
 
-macx:
-{
+macx{
 QMAKE_LFLAGS += -F/System/Library/Frameworks/
 LIBS += -framework CoreFoundation
 }
@@ -26,8 +25,7 @@ SOURCES += main.cpp\
     ResetToDefault.cpp \
     SaveSettings.cpp
 
-macx:
-{
+macx{
     SOURCES +=  OSXHelper.cpp
 }
 

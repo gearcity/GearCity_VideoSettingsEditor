@@ -402,7 +402,7 @@ void SettingsImporter::import(Ui::MainWindow *ui, QString videoFile, QString vol
     tmpElement = rootNode.firstChildElement("FontSize");
     if(!tmpElement.isNull())
     {
-      ui->FontSize_SpinBox->setValue(tmpElement.text().toInt());
+      ui->FontSize_SpinBox->setValue(tmpElement.text().toInt()/2);
     }
     else
     {

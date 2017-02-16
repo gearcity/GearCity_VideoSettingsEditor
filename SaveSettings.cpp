@@ -156,7 +156,7 @@ void SaveSettings::save(Ui::MainWindow *ui, QString videoFile, QString volumeFil
      else
         xmlWriter.writeTextElement("Tutorials","false");
 
-     xmlWriter.writeTextElement("FontSize",QString::number(ui->FontSize_SpinBox->value()));
+     xmlWriter.writeTextElement("FontSize",QString::number(ui->FontSize_SpinBox->value()*2));
 
      if(ui->BorderlessWindow_CheckBox->isChecked())
         xmlWriter.writeTextElement("Borderless","true");
