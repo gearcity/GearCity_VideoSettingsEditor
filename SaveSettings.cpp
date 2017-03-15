@@ -131,7 +131,7 @@ void SaveSettings::save(Ui::MainWindow *ui, QString videoFile, QString volumeFil
 
 
      xmlWriter.writeTextElement("Language",ui->Language_ComboBox->currentText());
-     xmlWriter.writeTextElement("Shadows",ui->Shadow_ComboBox->currentText());
+     xmlWriter.writeTextElement("Shadows",QString::number(ui->Shadow_ComboBox->currentIndex()));
 
      if(ui->Shaders_CheckBox->isChecked())
         xmlWriter.writeTextElement("Shaders","true");
