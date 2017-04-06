@@ -44,6 +44,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.")*/
 #include "SettingsImporter.h"
 #include "ResetToDefault.h"
 #include "SavesSettings.h"
+#include "ReadModFile.h"
 
 #if defined(Q_WS_MACX)
 #include "OSXHelper.h"
@@ -102,14 +103,17 @@ MainWindow::MainWindow(QWidget *parent) :
   //Set up default just in case.
   ResetToDefault(ui);
 
-  //Import Current Game Settings
+  //Import Current Game Settings and Mod Folders
   #if defined(Q_WS_WIN)
-   SettingsImporter(ui,"../GearCity/Settings/");
+   SettingsImporter(ui,"../GearCity/Settings/","../media/Mods/" );
   #elif defined(Q_WS_X11)
-   SettingsImporter(ui,"../GearCity/Settings/");
+   SettingsImporter(ui,"../GearCity/Settings/","../media/Mods/");
   #elif defined(Q_WS_MACX)
-   SettingsImporter(ui,OSXHelper::getMacPath(0) + "/GearCity/Settings/");
+   SettingsImporter(ui,OSXHelper::getMacPath(0) + "/GearCity/Settings/",
+                    OSXHelper::getMacPath(0) +"/media/Mods/");
   #endif
+
+
 
 }
 
@@ -231,4 +235,30 @@ void MainWindow::resolutionTextBoxesChanged()
   ui->VideoRes_ComboBox->setEditable(true);
   ui->VideoRes_ComboBox->lineEdit()->setText(resText);
   ui->VideoRes_ComboBox->lineEdit()->setReadOnly(true);
+}
+
+
+void MainWindow::on_comboBox_Mod_AvaliableMods_currentIndexChanged(const QString &arg1)
+{
+    if(ui->comboBox_Mod_AvaliableMods->currentIndex() == 0)
+    {
+        ui->label_Mod_Author->setText("Eric B Jones");
+        ui->textBrowser_Mod_Description->setText("Default Game Files for GearCity");
+        ui->listWidget_Mod_Maps->clear();
+         ui->listWidget_Mod_Maps->addItem("All");
+         ui->tableWidget_Mod_Features->clearContents();
+         ui->tableWidget_Mod_Features->setRowCount(0);
+    }
+    else
+    {
+        #if defined(Q_WS_WIN)
+         ReadModFile(ui,"../media/Mods/"+ui->comboBox_Mod_AvaliableMods->currentText() );
+        #elif defined(Q_WS_X11)
+         ReadModFile(ui,"../media/Mods/"+ui->comboBox_Mod_AvaliableMods->currentText());
+        #elif defined(Q_WS_MACX)
+         ReadModFile(ui, OSXHelper::getMacPath(0) +"/media/Mods/"+
+                     ui->comboBox_Mod_AvaliableMods->currentText());
+        #endif
+    }
+
 }

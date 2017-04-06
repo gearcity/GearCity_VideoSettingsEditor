@@ -45,20 +45,37 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.")*/
 #include <QMessageBox>
 #include <QString>
 #include "ResetToDefault.h"
+#include <QDir>
 
-SettingsImporter::SettingsImporter(Ui::MainWindow *ui, QString folderName)
+SettingsImporter::SettingsImporter(Ui::MainWindow *ui, QString settingsFolderName
+                                   , QString modFolderPath )
 {
     //Set settings file names, it's different for unix's than windows.
-    QString videoFileName = "",volumeFileName=folderName+"Volume.xml";
+    QString videoFileName = "",volumeFileName=settingsFolderName+"Volume.xml";
 
     #ifdef Q_WS_WIN
-        videoFileName = folderName + "VideoConfig.xml";
+        videoFileName = settingsFolderName + "VideoConfig.xml";
     #else
-        videoFileName = folderName + "LinuxVideoConfig.xml";
+        videoFileName = settingsFolderName + "LinuxVideoConfig.xml";
     #endif
+
+    //Parse Mod Folder And Put Mod Names into mod combo box...
+        QDir dir(modFolderPath);
+        dir.setFilter(QDir::Dirs | QDir::NoDotAndDotDot);
+        QStringList fileList = dir.entryList();
+
+        //Default mod files that are not in the folder
+        fileList.push_front("Default");
+
+        ui->comboBox_Mod_AvaliableMods->clear();
+        ui->comboBox_Mod_AvaliableMods->addItems(fileList);
+
+
 
     //Import the Settings Files into the GUI
     import(ui,videoFileName,volumeFileName,true);
+
+
 }
 
 /*
@@ -519,6 +536,21 @@ void SettingsImporter::import(Ui::MainWindow *ui, QString videoFile, QString vol
     {
         ui->DisableHotkeys_Checkbox->setChecked(false);
     }
+
+
+    //Which Mod Is Selected
+    tmpElement = rootNode.firstChildElement("Mod");
+    if(!tmpElement.isNull())
+    {
+        ui->comboBox_Mod_AvaliableMods->setCurrentIndex(
+                ui->comboBox_Mod_AvaliableMods->findText(tmpElement.text()));
+
+    }
+    else
+    {
+         ui->comboBox_Mod_AvaliableMods->setCurrentIndex(0);
+    }
+
 
 
     /*

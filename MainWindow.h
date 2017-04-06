@@ -66,9 +66,13 @@ private slots:
 
 
 
+    void on_comboBox_Mod_AvaliableMods_currentIndexChanged(const QString &arg1);
+
 private:
     Ui::MainWindow *ui;
     QDesktopWidget *deskWidget;
+
+    void addModFoldersToCombo(QString path);
 
     int maxResHeight, maxResWidth;
 

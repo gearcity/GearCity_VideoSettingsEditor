@@ -23,7 +23,8 @@ SOURCES += main.cpp\
         LanguageFiller.cpp \
     SettingsImporter.cpp \
     ResetToDefault.cpp \
-    SaveSettings.cpp
+    SaveSettings.cpp \
+    ReadModFile.cpp
 
 macx{
     SOURCES +=  OSXHelper.cpp
@@ -35,7 +36,8 @@ HEADERS  += MainWindow.h \
     SettingsImporter.h \
     ResetToDefault.h \
     SavesSettings.h \
-    OSXHelper.h
+    OSXHelper.h \
+    ReadModFile.h
 
 
 

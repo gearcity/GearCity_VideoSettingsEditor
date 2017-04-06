@@ -47,7 +47,7 @@ class SettingsImporter
 {
 
 public:
-    SettingsImporter(Ui::MainWindow *ui, QString folderName="");
+    SettingsImporter(Ui::MainWindow *ui, QString settingsFolderName="", QString modFolderPath = "");
     void import(Ui::MainWindow *ui, QString videoFile, QString volumeFile, bool start = false);
 
 

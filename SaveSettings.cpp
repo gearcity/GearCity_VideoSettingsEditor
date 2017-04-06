@@ -190,6 +190,8 @@ void SaveSettings::save(Ui::MainWindow *ui, QString videoFile, QString volumeFil
      else
         xmlWriter.writeTextElement("DisableHotkeys","false");
 
+     xmlWriter.writeTextElement("Mod",ui->comboBox_Mod_AvaliableMods->currentText());
+
 
      xmlWriter.writeEndDocument();
 
