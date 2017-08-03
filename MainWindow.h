@@ -68,6 +68,8 @@ private slots:
 
     void on_comboBox_Mod_AvaliableMods_currentIndexChanged(const QString &arg1);
 
+    void on_FullScreen_CheckBox_clicked();
+
 private:
     Ui::MainWindow *ui;
     QDesktopWidget *deskWidget;

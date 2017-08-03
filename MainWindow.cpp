@@ -114,6 +114,7 @@ MainWindow::MainWindow(QWidget *parent) :
   #endif
 
 
+   ui->label_FullScreenWarning->hide();
 
 }
 
@@ -261,4 +262,25 @@ void MainWindow::on_comboBox_Mod_AvaliableMods_currentIndexChanged(const QString
         #endif
     }
 
+}
+
+void MainWindow::on_FullScreen_CheckBox_clicked()
+{
+    if(ui->FullScreen_CheckBox->isChecked())
+    {
+        ui->VideoRes_ComboBox->setCurrentIndex(0);
+        ui->VideoRes_ComboBox->setEnabled(false);
+
+        ui->VideoResHeight_TextBox->setEnabled(false);
+        ui->VideoResWidth_TextBox->setEnabled(false);
+        ui->label_FullScreenWarning->show();
+        resolutionChanged();
+    }
+    else
+    {
+        ui->VideoRes_ComboBox->setEnabled(true);
+        ui->VideoResHeight_TextBox->setEnabled(true);
+        ui->VideoResWidth_TextBox->setEnabled(true);
+        ui->label_FullScreenWarning->hide();
+    }
 }
