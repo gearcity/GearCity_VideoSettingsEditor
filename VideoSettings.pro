@@ -24,7 +24,8 @@ SOURCES += main.cpp\
     SettingsImporter.cpp \
     ResetToDefault.cpp \
     SaveSettings.cpp \
-    ReadModFile.cpp
+    ReadModFile.cpp \
+    ClearCache.cpp
 
 macx{
     SOURCES +=  OSXHelper.cpp
@@ -37,7 +38,8 @@ HEADERS  += MainWindow.h \
     ResetToDefault.h \
     SavesSettings.h \
     OSXHelper.h \
-    ReadModFile.h
+    ReadModFile.h \
+    ClearCache.h
 
 
 

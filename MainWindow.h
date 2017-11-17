@@ -70,6 +70,8 @@ private slots:
 
     void on_FullScreen_CheckBox_clicked();
 
+    void on_Main_ClearCache_clicked();
+
 private:
     Ui::MainWindow *ui;
     QDesktopWidget *deskWidget;

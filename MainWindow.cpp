@@ -45,6 +45,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.")*/
 #include "ResetToDefault.h"
 #include "SavesSettings.h"
 #include "ReadModFile.h"
+#include "ClearCache.h"
 
 #if defined(Q_WS_MACX)
 #include "OSXHelper.h"
@@ -115,6 +116,8 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
    ui->label_FullScreenWarning->hide();
+   ui->ProgressBar->hide();
+   ui->progressBarReports->hide();
 
 }
 
@@ -283,4 +286,22 @@ void MainWindow::on_FullScreen_CheckBox_clicked()
         ui->VideoResWidth_TextBox->setEnabled(true);
         ui->label_FullScreenWarning->hide();
     }
+}
+
+void MainWindow::on_Main_ClearCache_clicked()
+{
+
+    QMessageBox::StandardButton answer;
+     answer = QMessageBox::question(this, "Are you sure?", "This will delete all save games, "
+                                   " clear all cached files, and reset all settings files."
+                                   " You should do this if you are having problems or have"
+                                   " reinstalled the game.\n\n Are you sure you want to do this?",
+                                   QMessageBox::Yes|QMessageBox::No);
+     if (answer == QMessageBox::Yes)
+     {
+       ClearCache cc(ui);
+       cc.clear();
+       ui->ProgressBar->hide();
+     }
+
 }

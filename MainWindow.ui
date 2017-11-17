@@ -740,6 +740,19 @@
       </widget>
      </item>
      <item>
+      <widget class="QPushButton" name="Main_ClearCache">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>40</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>Clear Cache/Savegames</string>
+       </property>
+      </widget>
+     </item>
+     <item>
       <widget class="QPushButton" name="MainCancel_Button">
        <property name="minimumSize">
         <size>
@@ -749,6 +762,32 @@
        </property>
        <property name="text">
         <string>Exit</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="verticalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>9</x>
+      <y>430</y>
+      <width>571</width>
+      <height>56</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QProgressBar" name="ProgressBar">
+       <property name="value">
+        <number>24</number>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QProgressBar" name="progressBarReports">
+       <property name="value">
+        <number>24</number>
        </property>
       </widget>
      </item>
