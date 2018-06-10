@@ -91,7 +91,8 @@ void ClearCache::deleteCacheFiles(QString folderPath)
     dir.setFilter(QDir::Files);
     foreach(QString dirFile, dir.entryList())
     {
-        if(dirFile != "." && dirFile != "..")
+        if(dirFile != "." && dirFile != ".." &&
+                dirFile != "Cache")
             dir.remove(dirFile);
     }
 

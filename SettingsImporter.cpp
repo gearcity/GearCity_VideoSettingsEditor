@@ -538,6 +538,21 @@ void SettingsImporter::import(Ui::MainWindow *ui, QString videoFile, QString vol
     }
 
 
+    //AutoSaveGUI
+    tmpElement = rootNode.firstChildElement("AutoSaveGUI");
+    if(!tmpElement.isNull())
+    {
+      if(tmpElement.text() == "true")
+        ui->AutoGUI_Checkbox->setChecked(true);
+      else
+        ui->AutoGUI_Checkbox->setChecked(false);
+    }
+    else
+    {
+        ui->AutoGUI_Checkbox->setChecked(false);
+    }
+
+
     //Which Mod Is Selected
     tmpElement = rootNode.firstChildElement("Mod");
     if(!tmpElement.isNull())
@@ -551,6 +566,121 @@ void SettingsImporter::import(Ui::MainWindow *ui, QString videoFile, QString vol
          ui->comboBox_Mod_AvaliableMods->setCurrentIndex(0);
     }
 
+    //Units!
+    tmpElement = rootNode.firstChildElement("Units_Fuel");
+    if(!tmpElement.isNull())
+    {
+        if(tmpElement.text() == "mpg")
+            ui->rb_units_fuel_mpg->setChecked(true);
+        else if(tmpElement.text() == "km/l")
+            ui->rb_units_fuel_kml->setChecked(true);
+        else if(tmpElement.text() == "l/100")
+            ui->rb_units_fuel_lkm->setChecked(true);
+    }
+    else
+    {
+        ui->rb_units_fuel_mpg->setChecked(true);
+    }
+
+    tmpElement = rootNode.firstChildElement("Units_Power");
+    if(!tmpElement.isNull())
+    {
+        if(tmpElement.text() == "hp")
+            ui->rb_units_power_hp->setChecked(true);
+        else if(tmpElement.text() == "ps")
+            ui->rb_units_power_PS->setChecked(true);
+        else if(tmpElement.text() == "kw")
+            ui->rb_units_power_kw->setChecked(true);
+    }
+    else
+    {
+        ui->rb_units_power_hp->setChecked(true);
+    }
+
+    tmpElement = rootNode.firstChildElement("Units_Torque");
+    if(!tmpElement.isNull())
+    {
+        if(tmpElement.text() == "ft-lbs")
+            ui->rb_units_force_ftlbs->setChecked(true);
+        else if(tmpElement.text() == "Nm")
+            ui->rb_units_force_nm->setChecked(true);
+
+    }
+    else
+    {
+        ui->rb_units_force_ftlbs->setChecked(true);
+    }
+
+    tmpElement = rootNode.firstChildElement("Units_Weight");
+    if(!tmpElement.isNull())
+    {
+        if(tmpElement.text() == "lbs")
+            ui->rb_units_weight_lbs->setChecked(true);
+        else if(tmpElement.text() == "kg")
+            ui->rb_units_weight_kg->setChecked(true);
+
+    }
+    else
+    {
+        ui->rb_units_weight_lbs->setChecked(true);
+    }
+
+    tmpElement = rootNode.firstChildElement("Units_Distance");
+    if(!tmpElement.isNull())
+    {
+        if(tmpElement.text() == "in")
+            ui->rb_units_length_inches->setChecked(true);
+        else if(tmpElement.text() == "mm")
+            ui->rb_units_length_mm->setChecked(true);
+
+    }
+    else
+    {
+        ui->rb_units_length_inches->setChecked(true);
+    }
+
+    tmpElement = rootNode.firstChildElement("Units_BigVol");
+    if(!tmpElement.isNull())
+    {
+        if(tmpElement.text() == "cu-ft")
+            ui->rb_units_vol_cuft->setChecked(true);
+        else if(tmpElement.text() == "L")
+            ui->rb_units_vol_L->setChecked(true);
+
+    }
+    else
+    {
+        ui->rb_units_vol_cuft->setChecked(true);
+    }
+
+
+    tmpElement = rootNode.firstChildElement("Units_SmallVol");
+    if(!tmpElement.isNull())
+    {
+        if(tmpElement.text() == "ci")
+            ui->rb_units_displacement_ci->setChecked(true);
+        else if(tmpElement.text() == "cc")
+            ui->rb_units_displacement_cc->setChecked(true);
+
+    }
+    else
+    {
+        ui->rb_units_displacement_cc->setChecked(true);
+    }
+
+    tmpElement = rootNode.firstChildElement("Units_Speed");
+    if(!tmpElement.isNull())
+    {
+        if(tmpElement.text() == "mph")
+            ui->rb_units_speed_mph->setChecked(true);
+        else if(tmpElement.text() == "km/h")
+            ui->rb_units_speed_kmh->setChecked(true);
+
+    }
+    else
+    {
+        ui->rb_units_speed_mph->setChecked(true);
+    }
 
 
     /*

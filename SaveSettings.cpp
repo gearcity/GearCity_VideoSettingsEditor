@@ -190,8 +190,57 @@ void SaveSettings::save(Ui::MainWindow *ui, QString videoFile, QString volumeFil
      else
         xmlWriter.writeTextElement("DisableHotkeys","false");
 
+     if(ui->DisableHotkeys_Checkbox->isChecked())
+        xmlWriter.writeTextElement("AutoSaveGUI","true");
+     else
+        xmlWriter.writeTextElement("AutoSaveGUI","false");
+
      xmlWriter.writeTextElement("Mod",ui->comboBox_Mod_AvaliableMods->currentText());
 
+     if(ui->rb_units_fuel_mpg->isChecked())
+         xmlWriter.writeTextElement("Units_Fuel","mpg");
+     else if(ui->rb_units_fuel_kml->isChecked())
+         xmlWriter.writeTextElement("Units_Fuel","km/l");
+     if(ui->rb_units_fuel_lkm->isChecked())
+         xmlWriter.writeTextElement("Units_Fuel","l/100");
+
+
+     if(ui->rb_units_power_hp->isChecked())
+         xmlWriter.writeTextElement("Units_HP","hp");
+     else if(ui->rb_units_power_PS->isChecked())
+         xmlWriter.writeTextElement("Units_HP","ps");
+     else if(ui->rb_units_power_kw->isChecked())
+         xmlWriter.writeTextElement("Units_HP","kw");
+
+     if(ui->rb_units_force_ftlbs->isChecked())
+         xmlWriter.writeTextElement("Units_Torque","ft-lbs");
+     else if(ui->rb_units_force_nm->isChecked())
+         xmlWriter.writeTextElement("Units_Torque","Nm");
+
+     if(ui->rb_units_weight_lbs->isChecked())
+         xmlWriter.writeTextElement("Units_Weight","lbs");
+     else if(ui->rb_units_weight_kg->isChecked())
+         xmlWriter.writeTextElement("Units_Weight","kg");
+
+     if(ui->rb_units_length_inches->isChecked())
+         xmlWriter.writeTextElement("Units_Distance","in");
+     else if(ui->rb_units_length_mm->isChecked())
+         xmlWriter.writeTextElement("Units_Distance","mm");
+
+     if(ui->rb_units_vol_cuft->isChecked())
+         xmlWriter.writeTextElement("Units_BigVol","cu-ft");
+     else if(ui->rb_units_vol_L->isChecked())
+         xmlWriter.writeTextElement("Units_BigVol","L");
+
+     if(ui->rb_units_displacement_ci->isChecked())
+         xmlWriter.writeTextElement("Units_SmallVol","ci");
+     else if(ui->rb_units_displacement_cc->isChecked())
+         xmlWriter.writeTextElement("Units_SmallVol","cc");
+
+     if(ui->rb_units_speed_mph->isChecked())
+         xmlWriter.writeTextElement("Units_Speed","mph");
+     else if(ui->rb_units_speed_kmh->isChecked())
+         xmlWriter.writeTextElement("Units_SmallVol","km/h");
 
      xmlWriter.writeEndDocument();
 
