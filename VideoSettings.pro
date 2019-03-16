@@ -12,10 +12,8 @@ QT += xml
 TARGET = VideoSettings
 TEMPLATE = app
 
-macx{
-QMAKE_LFLAGS += -F/System/Library/Frameworks/
-LIBS += -framework CoreFoundation
-}
+DEFINES += STEAMSUPPORT
+
 
 SOURCES += main.cpp\
         MainWindow.cpp \
@@ -25,11 +23,9 @@ SOURCES += main.cpp\
     ResetToDefault.cpp \
     SaveSettings.cpp \
     ReadModFile.cpp \
-    ClearCache.cpp
+    ClearCache.cpp \
+    SteamWorkshopLoader.cpp
 
-macx{
-    SOURCES +=  OSXHelper.cpp
-}
 
 HEADERS  += MainWindow.h \
          PredefinedResolutions.h \
@@ -39,10 +35,34 @@ HEADERS  += MainWindow.h \
     SavesSettings.h \
     OSXHelper.h \
     ReadModFile.h \
-    ClearCache.h
+    ClearCache.h \
+    SteamWorkshopLoader.h
 
 
 
 FORMS    += MainWindow.ui
+
+
+macx{
+    SOURCES +=  OSXHelper.cpp
+    QMAKE_LFLAGS += -F/System/Library/Frameworks/
+    LIBS += -framework CoreFoundation
+} else {
+
+    unix{ #doesn't like Linux for some reason...
+
+        LIBS += $$PWD/Steamworks_142/sdk/redistributable_bin/linux32/libsteam_api.so
+        INCLUDEPATH += $$PWD/Steamworks_142/sdk/public/
+    }
+
+    win32{
+        LIBS += $$PWD/Steamworks_142/sdk/redistributable_bin/steam_api.lib
+        INCLUDEPATH += $$PWD/Steamworks_142/sdk/public/
+    }
+
+
+}
+
+
 
 

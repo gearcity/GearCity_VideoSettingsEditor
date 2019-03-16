@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
-    <height>600</height>
+    <width>620</width>
+    <height>650</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -45,358 +45,456 @@
        <attribute name="title">
         <string>Engine Settings</string>
        </attribute>
-       <layout class="QGridLayout" name="gridLayout_3">
+       <layout class="QGridLayout" name="gridLayout">
+        <item row="0" column="1">
+         <widget class="QComboBox" name="Render_ComboBox">
+          <item>
+           <property name="text">
+            <string>DirectX</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>OpenGL</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+        <item row="3" column="1">
+         <layout class="QHBoxLayout" name="horizontalLayout_4">
+          <item>
+           <widget class="QCheckBox" name="FullScreen_CheckBox">
+            <property name="text">
+             <string>Enable</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_FullScreenWarning">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="text">
+             <string>Please use the in-game settings to set fullscreen resolution.</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item row="14" column="0">
+         <widget class="QLabel" name="label_4">
+          <property name="text">
+           <string>VSYNC:</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="1">
+         <widget class="QCheckBox" name="BorderlessWindow_CheckBox">
+          <property name="text">
+           <string>Enable</string>
+          </property>
+         </widget>
+        </item>
         <item row="0" column="0">
-         <layout class="QGridLayout" name="gridLayout">
-          <property name="sizeConstraint">
-           <enum>QLayout::SetDefaultConstraint</enum>
+         <widget class="QLabel" name="label">
+          <property name="text">
+           <string>Rendering Engine:</string>
           </property>
-          <property name="verticalSpacing">
-           <number>4</number>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
           </property>
-          <item row="10" column="0">
-           <widget class="QLabel" name="label_8">
-            <property name="text">
-             <string>Shaders:</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-            </property>
-           </widget>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QComboBox" name="FSAA_ComboBox">
+          <item>
+           <property name="text">
+            <string>0</string>
+           </property>
           </item>
-          <item row="8" column="0">
-           <widget class="QLabel" name="label_6">
-            <property name="text">
-             <string>Video Resolution:</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-            </property>
-           </widget>
+          <item>
+           <property name="text">
+            <string>2</string>
+           </property>
           </item>
-          <item row="9" column="0">
-           <widget class="QLabel" name="label_7">
-            <property name="text">
-             <string>Shadows:</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-            </property>
-           </widget>
+          <item>
+           <property name="text">
+            <string>4</string>
+           </property>
           </item>
-          <item row="9" column="2">
-           <widget class="QComboBox" name="Shadow_ComboBox">
+          <item>
+           <property name="text">
+            <string>8</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+        <item row="3" column="0">
+         <widget class="QLabel" name="label_5">
+          <property name="text">
+           <string>Fullscreen:</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QLabel" name="label_3">
+          <property name="text">
+           <string>FSAA:</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="label_2">
+          <property name="text">
+           <string>ColorDepth:</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QComboBox" name="ColorDepth_ComboBox">
+          <item>
+           <property name="text">
+            <string>32</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>16</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+        <item row="4" column="0">
+         <widget class="QLabel" name="BorderWindow_Label">
+          <property name="text">
+           <string>Borderless Window:</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="1">
+         <widget class="QSpinBox" name="MonitorIndex_SpinBox"/>
+        </item>
+        <item row="14" column="1">
+         <widget class="QCheckBox" name="VSYNC_CheckBox">
+          <property name="text">
+           <string>Enable</string>
+          </property>
+         </widget>
+        </item>
+        <item row="7" column="1">
+         <layout class="QVBoxLayout" name="verticalLayout_2">
+          <item>
+           <widget class="QComboBox" name="VideoRes_ComboBox"/>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_2">
+            <property name="spacing">
+             <number>6</number>
+            </property>
             <item>
-             <property name="text">
-              <string>None</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>Lowest</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>Low</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>Medium</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>High</string>
-             </property>
-            </item>
-           </widget>
-          </item>
-          <item row="6" column="0">
-           <widget class="QLabel" name="label_4">
-            <property name="text">
-             <string>VSYNC:</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="2">
-           <widget class="QComboBox" name="Render_ComboBox">
-            <item>
-             <property name="text">
-              <string>DirectX</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>OpenGL</string>
-             </property>
-            </item>
-           </widget>
-          </item>
-          <item row="6" column="2">
-           <widget class="QCheckBox" name="VSYNC_CheckBox">
-            <property name="text">
-             <string>Enable</string>
-            </property>
-           </widget>
-          </item>
-          <item row="4" column="2">
-           <widget class="QComboBox" name="FSAA_ComboBox">
-            <item>
-             <property name="text">
-              <string>0</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>2</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>4</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>8</string>
-             </property>
-            </item>
-           </widget>
-          </item>
-          <item row="5" column="0">
-           <widget class="QLabel" name="label_5">
-            <property name="text">
-             <string>Fullscreen:</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item row="12" column="2">
-           <widget class="QCheckBox" name="HardwareMouse_CheckBox">
-            <property name="text">
-             <string>Enable</string>
-            </property>
-           </widget>
-          </item>
-          <item row="13" column="2">
-           <widget class="QSpinBox" name="FontSize_SpinBox">
-            <property name="minimum">
-             <number>-1</number>
-            </property>
-            <property name="maximum">
-             <number>1</number>
-            </property>
-           </widget>
-          </item>
-          <item row="13" column="0">
-           <widget class="QLabel" name="label_14">
-            <property name="text">
-             <string>Font Size:</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item row="16" column="2">
-           <widget class="QCheckBox" name="LowDefTexture_CheckBox">
-            <property name="text">
-             <string>Enable</string>
-            </property>
-           </widget>
-          </item>
-          <item row="16" column="0">
-           <widget class="QLabel" name="label_16">
-            <property name="text">
-             <string>Low Definition Textures:</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item row="11" column="0">
-           <widget class="QLabel" name="label_9">
-            <property name="text">
-             <string>Compositors:</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item row="14" column="0">
-           <widget class="QLabel" name="label_21">
-            <property name="text">
-             <string>Language:</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item row="15" column="0">
-           <widget class="QLabel" name="BorderWindow_Label">
-            <property name="text">
-             <string>Borderless Window:</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item row="15" column="2">
-           <widget class="QCheckBox" name="BorderlessWindow_CheckBox">
-            <property name="text">
-             <string>Enable</string>
-            </property>
-           </widget>
-          </item>
-          <item row="14" column="2">
-           <widget class="QComboBox" name="Language_ComboBox">
-            <item>
-             <property name="text">
-              <string>English</string>
-             </property>
-            </item>
-           </widget>
-          </item>
-          <item row="12" column="0">
-           <widget class="QLabel" name="label_10">
-            <property name="text">
-             <string>Hardware Mouse:</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item row="11" column="2">
-           <widget class="QCheckBox" name="Compositors_CheckBox">
-            <property name="text">
-             <string>Enable</string>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="2">
-           <widget class="QComboBox" name="ColorDepth_ComboBox">
-            <item>
-             <property name="text">
-              <string>32</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>16</string>
-             </property>
-            </item>
-           </widget>
-          </item>
-          <item row="10" column="2">
-           <widget class="QCheckBox" name="Shaders_CheckBox">
-            <property name="text">
-             <string>Enable</string>
-            </property>
-           </widget>
-          </item>
-          <item row="4" column="0">
-           <widget class="QLabel" name="label_3">
-            <property name="text">
-             <string>FSAA:</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="0">
-           <widget class="QLabel" name="label">
-            <property name="text">
-             <string>Rendering Engine:</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="0">
-           <widget class="QLabel" name="label_2">
-            <property name="text">
-             <string>ColorDepth:</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item row="8" column="2">
-           <layout class="QVBoxLayout" name="verticalLayout_2">
-            <item>
-             <widget class="QComboBox" name="VideoRes_ComboBox"/>
-            </item>
-            <item>
-             <layout class="QHBoxLayout" name="horizontalLayout_2">
-              <property name="spacing">
-               <number>6</number>
-              </property>
-              <item>
-               <widget class="QLabel" name="label_19">
-                <property name="text">
-                 <string>Width:</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QLineEdit" name="VideoResWidth_TextBox"/>
-              </item>
-              <item>
-               <widget class="QLabel" name="label_20">
-                <property name="text">
-                 <string>Height:</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QLineEdit" name="VideoResHeight_TextBox"/>
-              </item>
-             </layout>
-            </item>
-           </layout>
-          </item>
-          <item row="5" column="2">
-           <layout class="QHBoxLayout" name="horizontalLayout_4">
-            <item>
-             <widget class="QCheckBox" name="FullScreen_CheckBox">
+             <widget class="QLabel" name="label_19">
               <property name="text">
-               <string>Enable</string>
+               <string>Width:</string>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="QLabel" name="label_FullScreenWarning">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
+             <widget class="QLineEdit" name="VideoResWidth_TextBox"/>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_20">
               <property name="text">
-               <string>Please use the in-game settings to set fullscreen resolution.</string>
+               <string>Height:</string>
               </property>
              </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="VideoResHeight_TextBox"/>
             </item>
            </layout>
           </item>
          </layout>
         </item>
+        <item row="16" column="1">
+         <widget class="QSpinBox" name="fpsLimiter_spinnerBox">
+          <property name="minimum">
+           <number>15</number>
+          </property>
+          <property name="maximum">
+           <number>1200</number>
+          </property>
+          <property name="value">
+           <number>60</number>
+          </property>
+         </widget>
+        </item>
+        <item row="16" column="0">
+         <widget class="QLabel" name="label_41">
+          <property name="text">
+           <string>Frame Limiter (FPS):</string>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="0">
+         <widget class="QLabel" name="label_46">
+          <property name="text">
+           <string>Monitor Index:</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="13" column="1">
+         <widget class="QCheckBox" name="HardwareMouse_CheckBox">
+          <property name="text">
+           <string>Enable</string>
+          </property>
+         </widget>
+        </item>
+        <item row="13" column="0">
+         <widget class="QLabel" name="label_10">
+          <property name="text">
+           <string>Hardware Mouse:</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="12" column="1">
+         <widget class="QCheckBox" name="Compositors_CheckBox">
+          <property name="text">
+           <string>Enable</string>
+          </property>
+         </widget>
+        </item>
+        <item row="12" column="0">
+         <widget class="QLabel" name="label_9">
+          <property name="text">
+           <string>Compositors:</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="11" column="0">
+         <widget class="QLabel" name="label_8">
+          <property name="text">
+           <string>Shaders:</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="11" column="1">
+         <widget class="QCheckBox" name="Shaders_CheckBox">
+          <property name="text">
+           <string>Enable</string>
+          </property>
+         </widget>
+        </item>
+        <item row="9" column="1">
+         <widget class="QCheckBox" name="LowDefTexture_CheckBox">
+          <property name="text">
+           <string>Enable</string>
+          </property>
+         </widget>
+        </item>
+        <item row="9" column="0">
+         <widget class="QLabel" name="label_16">
+          <property name="text">
+           <string>Low Definition Textures:</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="7" column="0">
+         <widget class="QLabel" name="label_6">
+          <property name="text">
+           <string>Video Resolution:</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="8" column="0">
+         <widget class="QLabel" name="label_7">
+          <property name="text">
+           <string>Shadows:</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="8" column="1">
+         <widget class="QComboBox" name="Shadow_ComboBox">
+          <item>
+           <property name="text">
+            <string>None</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Lowest</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Low</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Medium</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>High</string>
+           </property>
+          </item>
+         </widget>
+        </item>
        </layout>
+      </widget>
+      <widget class="QWidget" name="tab_2">
+       <attribute name="title">
+        <string>Engine Settings 2</string>
+       </attribute>
+       <widget class="QWidget" name="formLayoutWidget">
+        <property name="geometry">
+         <rect>
+          <x>9</x>
+          <y>9</y>
+          <width>581</width>
+          <height>431</height>
+         </rect>
+        </property>
+        <layout class="QFormLayout" name="formLayout_3">
+         <property name="fieldGrowthPolicy">
+          <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+         </property>
+         <item row="0" column="0">
+          <widget class="QLabel" name="label_21">
+           <property name="text">
+            <string>Language:</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QComboBox" name="Language_ComboBox">
+           <item>
+            <property name="text">
+             <string>English</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="label_42">
+           <property name="text">
+            <string>Dynamic Reports Size:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QCheckBox" name="dynamicReports_CheckBox">
+           <property name="text">
+            <string>Enable</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="label_43">
+           <property name="text">
+            <string>Scale GUI:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <layout class="QHBoxLayout" name="horizontalLayout_12">
+           <item>
+            <widget class="QLabel" name="label_44">
+             <property name="text">
+              <string>+0%</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QScrollBar" name="ScaleGUI_horizontalScrollBar">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="maximum">
+              <number>100</number>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_45">
+             <property name="text">
+              <string>+100%</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item row="3" column="0">
+          <widget class="QLabel" name="label_14">
+           <property name="text">
+            <string>Font Size:</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="QSpinBox" name="FontSize_SpinBox">
+           <property name="minimum">
+            <number>-1</number>
+           </property>
+           <property name="maximum">
+            <number>1</number>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
       </widget>
       <widget class="QWidget" name="InGameSettingsTab">
        <attribute name="title">
@@ -1075,8 +1173,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>600</width>
-     <height>21</height>
+     <width>620</width>
+     <height>18</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuGearCity_Video_Settings">
@@ -1131,13 +1229,13 @@
  <resources/>
  <connections/>
  <buttongroups>
+  <buttongroup name="bg_Units_speed"/>
+  <buttongroup name="bg_Units_length"/>
   <buttongroup name="bg_Units_Fuel"/>
-  <buttongroup name="bg_Units_power"/>
   <buttongroup name="bg_Units_Force"/>
   <buttongroup name="bg_Units_weight"/>
-  <buttongroup name="bg_Units_length"/>
-  <buttongroup name="bg_Units_vol"/>
+  <buttongroup name="bg_Units_power"/>
   <buttongroup name="bg_Units_displacement"/>
-  <buttongroup name="bg_Units_speed"/>
+  <buttongroup name="bg_Units_vol"/>
  </buttongroups>
 </ui>

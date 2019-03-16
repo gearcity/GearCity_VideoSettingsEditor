@@ -195,6 +195,23 @@ void SaveSettings::save(Ui::MainWindow *ui, QString videoFile, QString volumeFil
      else
         xmlWriter.writeTextElement("AutoSaveGUI","false");
 
+     xmlWriter.writeTextElement("ScaleGUI",QString::number(ui->ScaleGUI_horizontalScrollBar->value()));
+
+     if(ui->dynamicReports_CheckBox->isChecked())
+        xmlWriter.writeTextElement("PowerOfTwo","true");
+     else
+        xmlWriter.writeTextElement("PowerOfTwo","false");
+
+    if(ui->fpsLimiter_spinnerBox->value() < 20)
+         xmlWriter.writeTextElement("FrameRateLimit","20");
+    else
+         xmlWriter.writeTextElement("FrameRateLimit",QString::number(ui->fpsLimiter_spinnerBox->value()));
+
+
+    xmlWriter.writeTextElement("MonitorIndex",QString::number(ui->MonitorIndex_SpinBox->value()));
+
+
+
      xmlWriter.writeTextElement("Mod",ui->comboBox_Mod_AvaliableMods->currentText());
 
      if(ui->rb_units_fuel_mpg->isChecked())
@@ -240,7 +257,7 @@ void SaveSettings::save(Ui::MainWindow *ui, QString videoFile, QString volumeFil
      if(ui->rb_units_speed_mph->isChecked())
          xmlWriter.writeTextElement("Units_Speed","mph");
      else if(ui->rb_units_speed_kmh->isChecked())
-         xmlWriter.writeTextElement("Units_SmallVol","km/h");
+         xmlWriter.writeTextElement("Units_Speed","km/h");
 
      xmlWriter.writeEndDocument();
 

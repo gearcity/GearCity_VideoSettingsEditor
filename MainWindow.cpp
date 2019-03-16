@@ -46,6 +46,8 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.")*/
 #include "SavesSettings.h"
 #include "ReadModFile.h"
 #include "ClearCache.h"
+#include "SteamWorkshopLoader.h"
+
 
 #if defined(Q_WS_MACX)
 #include "OSXHelper.h"
@@ -57,6 +59,8 @@ MainWindow::MainWindow(QWidget *parent) :
   ui(new Ui::MainWindow)
 {
   ui->setupUi(this);
+
+
 
   //Top Menus
   QObject::connect(ui->actionAbout, SIGNAL(triggered()),this,SLOT(aboutProgram()));
@@ -98,11 +102,45 @@ MainWindow::MainWindow(QWidget *parent) :
   QObject::connect(ui->VideoResHeight_TextBox,SIGNAL(textEdited(QString)),
                    this,SLOT(resolutionTextBoxesChanged()));
 
+
   //Fill Language Dropdown
   fillLanguageCombo(ui->Language_ComboBox);
 
   //Set up default just in case.
   ResetToDefault(ui);
+
+
+   ui->label_FullScreenWarning->hide();
+   ui->ProgressBar->hide();
+   ui->progressBarReports->hide();
+
+
+
+   connect(&timer,SIGNAL(timeout()),this,SLOT(checkSteamAndSetSettings()));
+
+
+
+    timer.start(100);
+
+
+}
+
+/*Deconstructor*/
+MainWindow::~MainWindow()
+{
+  delete ui;
+}
+
+void MainWindow::checkSteamAndSetSettings()
+{
+
+    timer.stop();
+
+#if STEAMSUPPORT
+  ui->ProgressBar->show();
+  SteamWorkshopLoader(ui, false);
+  ui->ProgressBar->hide();
+#endif
 
   //Import Current Game Settings and Mod Folders
   #if defined(Q_WS_WIN)
@@ -115,16 +153,6 @@ MainWindow::MainWindow(QWidget *parent) :
   #endif
 
 
-   ui->label_FullScreenWarning->hide();
-   ui->ProgressBar->hide();
-   ui->progressBarReports->hide();
-
-}
-
-/*Deconstructor*/
-MainWindow::~MainWindow()
-{
-  delete ui;
 }
 
 /*About the program*/

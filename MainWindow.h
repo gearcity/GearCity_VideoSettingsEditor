@@ -42,6 +42,8 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.")*/
 
 #include <QMainWindow>
 #include <QDesktopWidget>
+#include "QTimer"
+
 
 namespace Ui {
 class MainWindow;
@@ -71,10 +73,13 @@ private slots:
     void on_FullScreen_CheckBox_clicked();
 
     void on_Main_ClearCache_clicked();
+    void checkSteamAndSetSettings();
 
 private:
     Ui::MainWindow *ui;
     QDesktopWidget *deskWidget;
+
+    QTimer timer;
 
     void addModFoldersToCombo(QString path);
 

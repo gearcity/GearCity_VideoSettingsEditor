@@ -477,6 +477,55 @@ void SettingsImporter::import(Ui::MainWindow *ui, QString videoFile, QString vol
        ui->AutoSave_ComboBox->setCurrentIndex(3);
     }
 
+    //ScaleGUI
+    tmpElement = rootNode.firstChildElement("ScaleGUI");
+    if(!tmpElement.isNull())
+    {
+        ui->ScaleGUI_horizontalScrollBar->setValue((tmpElement.text().toDouble()-1)*100);
+    }
+    else
+    {
+       ui->ScaleGUI_horizontalScrollBar->setValue(0);
+    }
+
+
+    //PowerOfTwo
+    tmpElement = rootNode.firstChildElement("PowerOfTwo");
+    if(!tmpElement.isNull())
+    {
+        if(tmpElement.text()=="true")
+         ui->dynamicReports_CheckBox->setChecked(true);
+        else
+         ui->dynamicReports_CheckBox->setChecked(false);
+
+
+    }
+    else
+    {
+       ui->dynamicReports_CheckBox->setChecked(false);
+    }
+
+    //FrameRateLimit
+    tmpElement = rootNode.firstChildElement("FrameRateLimit");
+    if(!tmpElement.isNull())
+    {
+        ui->fpsLimiter_spinnerBox->setValue(tmpElement.text().toInt());
+    }
+    else
+    {
+       ui->fpsLimiter_spinnerBox->setValue(60);
+    }
+
+    //MonitorIndex
+    tmpElement = rootNode.firstChildElement("MonitorIndex");
+    if(!tmpElement.isNull())
+    {
+        ui->MonitorIndex_SpinBox->setValue(tmpElement.text().toInt());
+    }
+    else
+    {
+       ui->MonitorIndex_SpinBox->setValue(0);
+    }
 
     //Delete Old Save Reports every few years...
     tmpElement = rootNode.firstChildElement("DeleteOldReports");
@@ -582,7 +631,7 @@ void SettingsImporter::import(Ui::MainWindow *ui, QString videoFile, QString vol
         ui->rb_units_fuel_mpg->setChecked(true);
     }
 
-    tmpElement = rootNode.firstChildElement("Units_Power");
+    tmpElement = rootNode.firstChildElement("Units_HP");
     if(!tmpElement.isNull())
     {
         if(tmpElement.text() == "hp")
@@ -699,7 +748,7 @@ void SettingsImporter::import(Ui::MainWindow *ui, QString videoFile, QString vol
     }
 
     //Begin Reading and Setting UI values.
-    rootNode = voldoc.documentElement();
+    rootNode = voldoc.firstChildElement("Sound");
     tmpElement = rootNode.firstChildElement("Volume");
 
     if(!tmpElement.isNull())

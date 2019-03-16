@@ -75,6 +75,11 @@ void ResetToDefault(Ui::MainWindow *ui)
      ui->LockSeasons_CheckBox->setChecked(false);
      ui->SaveOnExit_CheckBox->setChecked(true);
 
+     ui->ScaleGUI_horizontalScrollBar->setValue(0);
+     ui->dynamicReports_CheckBox->setChecked(false);
+     ui->fpsLimiter_spinnerBox->setValue(60);
+     ui->MonitorIndex_SpinBox->setValue(0);
+
      ui->MusicVolume_SpinBox->setValue(0.15);
      ui->SoundEffects_SpinBox->setValue(0.35);
 
