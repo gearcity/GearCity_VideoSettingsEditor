@@ -47,6 +47,9 @@ macx{
     SOURCES +=  OSXHelper.cpp
     QMAKE_LFLAGS += -F/System/Library/Frameworks/
     LIBS += -framework CoreFoundation
+    LIBS += $$PWD/Steamworks_142/sdk/redistributable_bin/osx32/libsteam_api142.dylib
+    INCLUDEPATH += $$PWD/Steamworks_142/sdk/public/
+
 } else {
 
     unix{ #doesn't like Linux for some reason...

@@ -195,7 +195,7 @@ void SaveSettings::save(Ui::MainWindow *ui, QString videoFile, QString volumeFil
      else
         xmlWriter.writeTextElement("AutoSaveGUI","false");
 
-     xmlWriter.writeTextElement("ScaleGUI",QString::number(ui->ScaleGUI_horizontalScrollBar->value()));
+     xmlWriter.writeTextElement("ScaleGUI",QString::number(ui->ScaleGUI_horizontalScrollBar->value()/100.0+1.0));
 
      if(ui->dynamicReports_CheckBox->isChecked())
         xmlWriter.writeTextElement("PowerOfTwo","true");

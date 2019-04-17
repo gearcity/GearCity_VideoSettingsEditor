@@ -226,7 +226,7 @@ void SteamWorkshopLoader::loadDeployedItemsList()
 #elif defined(Q_WS_X11)
  QString openFileName = "../GearCity/Settings/WorkshopItems.xml";
 #elif defined(Q_WS_MACX)
- QString openFileName = (OSXHelper::getMacPath(0) + "/GearCity/Settings/WorkshopItems.xml" ;
+ QString openFileName = OSXHelper::getMacPath(0) + "/GearCity/Settings/WorkshopItems.xml" ;
 #endif
 
  installedItems.clear();
@@ -335,7 +335,7 @@ void SteamWorkshopLoader::saveDeployedItemsList()
 #elif defined(Q_WS_X11)
  QString saveFileName = "../GearCity/Settings/WorkshopItems.xml" ;
 #elif defined(Q_WS_MACX)
- QString saveFileName = (OSXHelper::getMacPath(0) + "/GearCity/Settings/WorkshopItems.xml" ;
+ QString saveFileName = OSXHelper::getMacPath(0) + "/GearCity/Settings/WorkshopItems.xml" ;
 #endif
 
 
@@ -503,7 +503,7 @@ void SteamWorkshopLoader::moveMapAndRename(SteamUGCDetails_t data, bool both)
     #elif defined(Q_WS_X11)
      QString targetPath = "../media/Maps/";
     #elif defined(Q_WS_MACX)
-     QString targetPath = (OSXHelper::getMacPath(0) + "/media/Maps/" ;
+     QString targetPath = OSXHelper::getMacPath(0) + "/media/Maps/" ;
     #endif
 
      QString sourcePath = itemLocation;
@@ -570,7 +570,7 @@ void SteamWorkshopLoader::moveModAndRename(SteamUGCDetails_t data, bool both)
 #elif defined(Q_WS_X11)
  QString targetPath = "../media/Mods/";
 #elif defined(Q_WS_MACX)
- QString targetPath = (OSXHelper::getMacPath(0) + "/media/Maps/" ;
+ QString targetPath = OSXHelper::getMacPath(0) + "/media/Maps/" ;
 #endif
 
  QString sourcePath = itemLocation;
