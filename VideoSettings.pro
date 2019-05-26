@@ -54,7 +54,7 @@ macx{
 
     unix{ #doesn't like Linux for some reason...
 
-        LIBS += $$PWD/Steamworks_142/sdk/redistributable_bin/linux32/libsteam_api.so
+        LIBS += $$PWD/Steamworks_142/sdk/redistributable_bin/linux32/libsteam_api142.so
         INCLUDEPATH += $$PWD/Steamworks_142/sdk/public/
     }
 
