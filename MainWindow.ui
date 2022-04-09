@@ -78,7 +78,7 @@
              </sizepolicy>
             </property>
             <property name="text">
-             <string>Please use the in-game settings to set fullscreen resolution.</string>
+             <string>If in-game resolution resets, try the OpenGL renderer.</string>
             </property>
            </widget>
           </item>
@@ -490,6 +490,48 @@
            </property>
            <property name="maximum">
             <number>1</number>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="0">
+          <widget class="QLabel" name="label_40">
+           <property name="text">
+            <string>Random Music:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="0">
+          <widget class="QLabel" name="label_47">
+           <property name="text">
+            <string>No Music Year:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="0">
+          <widget class="QLabel" name="label_48">
+           <property name="text">
+            <string>Continuous Music</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="1">
+          <widget class="QCheckBox" name="checkBox_RandomMusic">
+           <property name="text">
+            <string>Enable</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="1">
+          <widget class="QCheckBox" name="checkBox_NoMusicYear">
+           <property name="text">
+            <string>Enable</string>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="1">
+          <widget class="QCheckBox" name="checkBox_ContinuousMusic">
+           <property name="text">
+            <string>Enable</string>
            </property>
           </widget>
          </item>
@@ -1174,7 +1216,7 @@
      <x>0</x>
      <y>0</y>
      <width>620</width>
-     <height>18</height>
+     <height>25</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuGearCity_Video_Settings">
@@ -1230,12 +1272,12 @@
  <connections/>
  <buttongroups>
   <buttongroup name="bg_Units_speed"/>
-  <buttongroup name="bg_Units_length"/>
-  <buttongroup name="bg_Units_Fuel"/>
-  <buttongroup name="bg_Units_Force"/>
-  <buttongroup name="bg_Units_weight"/>
-  <buttongroup name="bg_Units_power"/>
   <buttongroup name="bg_Units_displacement"/>
+  <buttongroup name="bg_Units_Fuel"/>
+  <buttongroup name="bg_Units_power"/>
+  <buttongroup name="bg_Units_weight"/>
   <buttongroup name="bg_Units_vol"/>
+  <buttongroup name="bg_Units_Force"/>
+  <buttongroup name="bg_Units_length"/>
  </buttongroups>
 </ui>

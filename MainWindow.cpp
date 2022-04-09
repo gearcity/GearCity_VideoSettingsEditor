@@ -300,10 +300,10 @@ void MainWindow::on_FullScreen_CheckBox_clicked()
     if(ui->FullScreen_CheckBox->isChecked())
     {
         ui->VideoRes_ComboBox->setCurrentIndex(0);
-        ui->VideoRes_ComboBox->setEnabled(false);
+       /* ui->VideoRes_ComboBox->setEnabled(false);
 
         ui->VideoResHeight_TextBox->setEnabled(false);
-        ui->VideoResWidth_TextBox->setEnabled(false);
+        ui->VideoResWidth_TextBox->setEnabled(false);*/
         ui->label_FullScreenWarning->show();
         resolutionChanged();
     }

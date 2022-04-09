@@ -494,9 +494,9 @@ void SettingsImporter::import(Ui::MainWindow *ui, QString videoFile, QString vol
     if(!tmpElement.isNull())
     {
         if(tmpElement.text()=="true")
-         ui->dynamicReports_CheckBox->setChecked(true);
-        else
          ui->dynamicReports_CheckBox->setChecked(false);
+        else
+         ui->dynamicReports_CheckBox->setChecked(true);
 
 
     }
@@ -768,6 +768,37 @@ void SettingsImporter::import(Ui::MainWindow *ui, QString videoFile, QString vol
    else
    {
      ui->SoundEffects_SpinBox->setValue(0.35);
+   }
+
+   tmpElement = rootNode.firstChildElement("Random");
+   if(!tmpElement.isNull())
+   {
+     ui->checkBox_RandomMusic->setChecked(tmpElement.text().toInt());
+   }
+   else
+   {
+     ui->checkBox_RandomMusic->setChecked(0);
+   }
+
+   tmpElement = rootNode.firstChildElement("YearLimit");
+   if(!tmpElement.isNull())
+   {
+     ui->checkBox_NoMusicYear->setChecked(tmpElement.text().toInt());
+   }
+   else
+   {
+     ui->checkBox_NoMusicYear->setChecked(1);
+   }
+
+
+   tmpElement = rootNode.firstChildElement("ContinuePlay");
+   if(!tmpElement.isNull())
+   {
+     ui->checkBox_ContinuousMusic->setChecked(tmpElement.text().toInt());
+   }
+   else
+   {
+     ui->checkBox_ContinuousMusic->setChecked(0);
    }
 
 

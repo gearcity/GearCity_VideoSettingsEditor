@@ -80,6 +80,10 @@ void ResetToDefault(Ui::MainWindow *ui)
      ui->fpsLimiter_spinnerBox->setValue(60);
      ui->MonitorIndex_SpinBox->setValue(0);
 
+     ui->checkBox_ContinuousMusic->setChecked(false);
+     ui->checkBox_NoMusicYear->setChecked(false);
+     ui->checkBox_RandomMusic->setChecked(false);
+
      ui->MusicVolume_SpinBox->setValue(0.15);
      ui->SoundEffects_SpinBox->setValue(0.35);
 

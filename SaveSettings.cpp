@@ -198,9 +198,9 @@ void SaveSettings::save(Ui::MainWindow *ui, QString videoFile, QString volumeFil
      xmlWriter.writeTextElement("ScaleGUI",QString::number(ui->ScaleGUI_horizontalScrollBar->value()/100.0+1.0));
 
      if(ui->dynamicReports_CheckBox->isChecked())
-        xmlWriter.writeTextElement("PowerOfTwo","true");
-     else
         xmlWriter.writeTextElement("PowerOfTwo","false");
+     else
+        xmlWriter.writeTextElement("PowerOfTwo","true");
 
     if(ui->fpsLimiter_spinnerBox->value() < 20)
          xmlWriter.writeTextElement("FrameRateLimit","20");
@@ -209,7 +209,6 @@ void SaveSettings::save(Ui::MainWindow *ui, QString videoFile, QString volumeFil
 
 
     xmlWriter.writeTextElement("MonitorIndex",QString::number(ui->MonitorIndex_SpinBox->value()));
-
 
 
      xmlWriter.writeTextElement("Mod",ui->comboBox_Mod_AvaliableMods->currentText());
@@ -270,6 +269,21 @@ void SaveSettings::save(Ui::MainWindow *ui, QString videoFile, QString volumeFil
      xmlVolumeWriter.writeStartElement("Sound");
      xmlVolumeWriter.writeTextElement("Volume",QString::number(ui->MusicVolume_SpinBox->value()));
      xmlVolumeWriter.writeTextElement("SoundFX",QString::number(ui->SoundEffects_SpinBox->value()));
+
+     if(ui->checkBox_RandomMusic->isChecked())
+         xmlVolumeWriter.writeTextElement("Random","1");
+     else
+         xmlVolumeWriter.writeTextElement("Random","0");
+
+     if(ui->checkBox_NoMusicYear->isChecked())
+         xmlVolumeWriter.writeTextElement("YearLimit","1");
+     else
+         xmlVolumeWriter.writeTextElement("YearLimit","0");
+
+     if(ui->checkBox_ContinuousMusic->isChecked())
+         xmlVolumeWriter.writeTextElement("ContinuePlay","1");
+     else
+         xmlVolumeWriter.writeTextElement("ContinuePlay","0");
 
      xmlVolumeWriter.writeEndDocument();
 

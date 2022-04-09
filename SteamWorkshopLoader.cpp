@@ -140,9 +140,9 @@ void SteamWorkshopLoader::loadWorkshopItem(PublishedFileId_t itemID)
 
     uint32 itemState = SteamUGC()->GetItemState( itemID );
 
-    QMessageBox::critical(uicpy->ProgressBar,"Error","ItemID: "+QString::number(itemID)+
+   /* QMessageBox::critical(uicpy->ProgressBar,"Error","ItemID: "+QString::number(itemID)+
                           "\nplayer itemState: "+QString::number(itemState));
-
+*/
 
     if(itemState != 5 && itemState != 4)
     {
@@ -162,8 +162,8 @@ void SteamWorkshopLoader::loadWorkshopItem(PublishedFileId_t itemID)
     }
      QMap<unsigned long long, playerInstalledItem>::ConstIterator it = installedItems.find(itemID);
 
-     QMessageBox::critical(uicpy->ProgressBar,"Error","Installed: "+QString::number(downloadTime)+
-                           "\nplayer Time: "+QString::number(it.value().playerInstalledTime));
+    /* QMessageBox::critical(uicpy->ProgressBar,"Error","Installed: "+QString::number(downloadTime)+
+                           "\nplayer Time: "+QString::number(it.value().playerInstalledTime));*/
 
     if(it == installedItems.end() || it.value().playerInstalledTime < downloadTime)
     {
@@ -581,10 +581,10 @@ void SteamWorkshopLoader::moveModAndRename(SteamUGCDetails_t data, bool both)
 #endif
 
  QString sourcePath = itemLocation;
-
+/*
 #if defined(Q_WS_MACX)
  sourcePath += "/"+ QString(data.m_rgchTitle);
-#endif
+#endif*/
 
 
  QString modName = readModFileForName(sourcePath+"/ModFile.xml");
@@ -732,7 +732,7 @@ QString SteamWorkshopLoader::readModFileForName(QString fileName)
     QFile file(fileName);
     if(!file.open(QFile::ReadOnly | QFile::Text))
     {
-        QMessageBox::critical(uicpy->ProgressBar,"Error","Can't open");
+        //QMessageBox::critical(uicpy->ProgressBar,"Error","Can't open");
        return "";
     }
 
