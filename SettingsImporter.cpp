@@ -53,7 +53,7 @@ SettingsImporter::SettingsImporter(Ui::MainWindow *ui, QString settingsFolderNam
     //Set settings file names, it's different for unix's than windows.
     QString videoFileName = "",volumeFileName=settingsFolderName+"Volume.xml";
 
-    #ifdef Q_WS_WIN
+    #ifdef Q_OS_WIN
         videoFileName = settingsFolderName + "VideoConfig.xml";
     #else
         videoFileName = settingsFolderName + "LinuxVideoConfig.xml";
@@ -152,7 +152,7 @@ void SettingsImporter::import(Ui::MainWindow *ui, QString videoFile, QString vol
         }
         else
         {
-            #if defined(Q_WS_WIN)
+            #if defined(Q_OS_WIN)
              ui->Render_ComboBox->setCurrentIndex(1);
             #else
              ui->Render_ComboBox->setCurrentIndex(0);

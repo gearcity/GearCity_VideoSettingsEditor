@@ -46,7 +46,7 @@ SaveSettings::SaveSettings(Ui::MainWindow *ui, QString folderName)
 {
     QString videoFileName = "",volumeFileName=folderName+"Volume.xml";
 
-    #if defined(Q_WS_WIN)
+    #if defined(Q_OS_WIN)
         videoFileName = folderName + "VideoConfig.xml";
     #else
         videoFileName = folderName + "LinuxVideoConfig.xml";

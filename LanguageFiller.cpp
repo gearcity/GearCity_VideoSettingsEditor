@@ -40,7 +40,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.")*/
 #include "LanguageFiller.h"
 #include <dirent.h>
 
-#if defined(Q_WS_MACX)
+#if defined(Q_OS_MACX)
     #include "OSXHelper.h"
 #endif
 
@@ -49,12 +49,12 @@ void fillLanguageCombo(QComboBox* langCombo)
 {
   QStringList langList;
 
-  #if defined(Q_WS_WIN)
+  #if defined(Q_OS_WIN)
       QString loadDir = "..\\localization\\";
 
-  #elif defined(Q_WS_X11)
+  #elif defined(Q_OS_LINUX)
         QString loadDir = "../localization/";
-  #elif defined(Q_WS_MACX)
+  #elif defined(Q_OS_MACX)
         //Ogre::String loadDir = OgreFramework::getSingletonPtr()->getMacPath() + "/localization/";
         QString loadDir = OSXHelper::getMacPath() + "/localization/";
   #endif

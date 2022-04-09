@@ -49,7 +49,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.")*/
 #include "SteamWorkshopLoader.h"
 
 
-#if defined(Q_WS_MACX)
+#if defined(Q_OS_MACX)
 #include "OSXHelper.h"
 #endif
 
@@ -74,7 +74,7 @@ MainWindow::MainWindow(QWidget *parent) :
   QObject::connect(ui->MainResetToDefault_Button,SIGNAL(clicked()),this,SLOT(resetToDefault()));
 
   //First Tab
-  #if !defined(Q_WS_WIN)
+  #if !defined(Q_OS_WIN)
     ui->Render_ComboBox->removeItem(0);
   #endif
 
@@ -143,11 +143,11 @@ void MainWindow::checkSteamAndSetSettings()
 #endif
 
   //Import Current Game Settings and Mod Folders
-  #if defined(Q_WS_WIN)
+  #if defined(Q_OS_WIN)
    SettingsImporter(ui,"../GearCity/Settings/","../media/Mods/" );
-  #elif defined(Q_WS_X11)
+  #elif defined(Q_OS_LINUX)
    SettingsImporter(ui,"../GearCity/Settings/","../media/Mods/");
-  #elif defined(Q_WS_MACX)
+  #elif defined(Q_OS_MACX)
    SettingsImporter(ui,OSXHelper::getMacPath(0) + "/GearCity/Settings/",
                     OSXHelper::getMacPath(0) +"/media/Mods/");
   #endif
@@ -171,11 +171,11 @@ void MainWindow::aboutProgram()
 void MainWindow::saveVideoSettings()
 {
 
-    #if defined(Q_WS_WIN)
+    #if defined(Q_OS_WIN)
      SaveSettings(ui,"../GearCity/Settings/");
-    #elif defined(Q_WS_X11)
+    #elif defined(Q_OS_LINUX)
      SaveSettings(ui,"../GearCity/Settings/");
-    #elif defined(Q_WS_MACX)
+    #elif defined(Q_OS_MACX)
      SaveSettings(ui,OSXHelper::getMacPath(0) + "/GearCity/Settings/");
     #endif
 
@@ -283,11 +283,11 @@ void MainWindow::on_comboBox_Mod_AvaliableMods_currentIndexChanged(const QString
     }
     else
     {
-        #if defined(Q_WS_WIN)
+        #if defined(Q_OS_WIN)
          ReadModFile(ui,"../media/Mods/"+ui->comboBox_Mod_AvaliableMods->currentText() );
-        #elif defined(Q_WS_X11)
+        #elif defined(Q_OS_LINUX)
          ReadModFile(ui,"../media/Mods/"+ui->comboBox_Mod_AvaliableMods->currentText());
-        #elif defined(Q_WS_MACX)
+        #elif defined(Q_OS_MACX)
          ReadModFile(ui, OSXHelper::getMacPath(0) +"/media/Mods/"+
                      ui->comboBox_Mod_AvaliableMods->currentText());
         #endif

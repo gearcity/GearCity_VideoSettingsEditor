@@ -13,7 +13,7 @@ void ClearCache::clear()
 
     ResetToDefault(ui);
     ui->ProgressBar->setValue(ui->ProgressBar->value()+1);
-    #if defined(Q_WS_WIN)
+    #if defined(Q_OS_WIN)
      deleteCacheFiles("../GearCity/Cache/");
      ui->ProgressBar->setValue(ui->ProgressBar->value()+1);
 
@@ -32,7 +32,7 @@ void ClearCache::clear()
      SaveSettings(ui,"../GearCity/Settings/");
      ui->ProgressBar->setValue(ui->ProgressBar->value()+1);
 
-    #elif defined(Q_WS_X11)
+    #elif defined(Q_OS_LINUX)
      deleteCacheFiles("../GearCity/Cache/");
      ui->ProgressBar->setValue(ui->ProgressBar->value()+1);
 
@@ -51,7 +51,7 @@ void ClearCache::clear()
      SaveSettings(ui,"../GearCity/Settings/");
      ui->ProgressBar->setValue(ui->ProgressBar->value()+1);
 
-    #elif defined(Q_WS_MACX)
+    #elif defined(Q_OS_MACX)
      deleteCacheFiles(OSXHelper::getMacPath(0) + "/GearCity/Cache/");
      ui->ProgressBar->setValue(ui->ProgressBar->value()+1);
 

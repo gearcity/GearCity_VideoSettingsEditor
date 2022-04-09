@@ -7,7 +7,7 @@
 #include <QDateTime>
 #include <QFileDialog>
 
-#if defined(Q_WS_WIN)
+#if defined(Q_OS_WIN)
     #include "stdlib.h"
 #else
    #include <unistd.h>
@@ -16,7 +16,7 @@
 
 #include "qmessagebox.h"
 
-#if defined(Q_WS_MACX)
+#if defined(Q_OS_MACX)
 #include "OSXHelper.h"
 #endif
 
@@ -194,7 +194,7 @@ void SteamWorkshopLoader::loadWorkshopItem(PublishedFileId_t itemID)
             QApplication::processEvents();
             SteamAPI_RunCallbacks();
 
-#if defined(Q_WS_WIN)
+#if defined(Q_OS_WIN)
             {
                 _sleep(1000);
             }
@@ -221,11 +221,11 @@ void SteamWorkshopLoader::loadWorkshopItem(PublishedFileId_t itemID)
 
 void SteamWorkshopLoader::loadDeployedItemsList()
 {
-#if defined(Q_WS_WIN)
+#if defined(Q_OS_WIN)
  QString openFileName = "../GearCity/Settings/WorkshopItems.xml" ;
-#elif defined(Q_WS_X11)
+#elif defined(Q_OS_LINUX)
  QString openFileName = "../GearCity/Settings/WorkshopItems.xml";
-#elif defined(Q_WS_MACX)
+#elif defined(Q_OS_MACX)
  QString openFileName = OSXHelper::getMacPath(0) + "/GearCity/Settings/WorkshopItems.xml" ;
 #endif
 
@@ -330,11 +330,11 @@ void SteamWorkshopLoader::loadDeployedItemsList()
 
 void SteamWorkshopLoader::saveDeployedItemsList()
 {
-#if defined(Q_WS_WIN)
+#if defined(Q_OS_WIN)
  QString saveFileName = "../GearCity/Settings/WorkshopItems.xml" ;
-#elif defined(Q_WS_X11)
+#elif defined(Q_OS_LINUX)
  QString saveFileName = "../GearCity/Settings/WorkshopItems.xml" ;
-#elif defined(Q_WS_MACX)
+#elif defined(Q_OS_MACX)
  QString saveFileName = OSXHelper::getMacPath(0) + "/GearCity/Settings/WorkshopItems.xml" ;
 #endif
 
@@ -502,11 +502,11 @@ void SteamWorkshopLoader::moveBothAndRename(SteamUGCDetails_t data)
 void SteamWorkshopLoader::moveMapAndRename(SteamUGCDetails_t data, bool both)
 {
 
-    #if defined(Q_WS_WIN)
+    #if defined(Q_OS_WIN)
      QString targetPath = "../media/Maps/" ;
-    #elif defined(Q_WS_X11)
+    #elif defined(Q_OS_LINUX)
      QString targetPath = "../media/Maps/";
-    #elif defined(Q_WS_MACX)
+    #elif defined(Q_OS_MACX)
      QString targetPath = OSXHelper::getMacPath(0) + "/media/Maps/" ;
     #endif
 
@@ -572,17 +572,17 @@ void SteamWorkshopLoader::moveMapAndRename(SteamUGCDetails_t data, bool both)
 void SteamWorkshopLoader::moveModAndRename(SteamUGCDetails_t data, bool both)
 {
 
-#if defined(Q_WS_WIN)
+#if defined(Q_OS_WIN)
  QString targetPath = "../media/Mods/" ;
-#elif defined(Q_WS_X11)
+#elif defined(Q_OS_LINUX)
  QString targetPath = "../media/Mods/";
-#elif defined(Q_WS_MACX)
+#elif defined(Q_OS_MACX)
  QString targetPath = OSXHelper::getMacPath(0) + "/media/Mods/" ;
 #endif
 
  QString sourcePath = itemLocation;
 /*
-#if defined(Q_WS_MACX)
+#if defined(Q_OS_MACX)
  sourcePath += "/"+ QString(data.m_rgchTitle);
 #endif*/
 
