@@ -144,10 +144,10 @@ void SteamWorkshopLoader::loadWorkshopItem(PublishedFileId_t itemID)
                           "\nplayer itemState: "+QString::number(itemState));
 */
 
-    if(itemState != 5 && itemState != 4)
+    /*if(itemState != 5 && itemState != 4)
     {
         return;
-    }
+    }*/
 
 
 
@@ -162,7 +162,7 @@ void SteamWorkshopLoader::loadWorkshopItem(PublishedFileId_t itemID)
     }
      QMap<unsigned long long, playerInstalledItem>::ConstIterator it = installedItems.find(itemID);
 
-    /* QMessageBox::critical(uicpy->ProgressBar,"Error","Installed: "+QString::number(downloadTime)+
+    /* QMessageBox::critical(uicpy->ProgressBar,"Error",it.value().Name+" Installed: "+QString::number(downloadTime)+
                            "\nplayer Time: "+QString::number(it.value().playerInstalledTime));*/
 
     if(it == installedItems.end() || it.value().playerInstalledTime < downloadTime)
@@ -546,6 +546,12 @@ void SteamWorkshopLoader::moveMapAndRename(SteamUGCDetails_t data, bool both)
             QString sourceFile = sourcePath + "/" + fileName;
             QString targetFile = targetPath + "/" + fileName;
 
+            if(QFile::exists(targetFile))
+            {
+                QFile::remove(targetFile);
+            }
+
+
             //copy the files.
             QFile::copy(sourceFile, targetFile);
         }
@@ -622,6 +628,11 @@ void SteamWorkshopLoader::moveModAndRename(SteamUGCDetails_t data, bool both)
         QString targetFile = targetPath + "/" + fileName;
 
 
+        if(QFile::exists(targetFile))
+        {
+            QFile::remove(targetFile);
+        }
+
         //copy the files.
         QFile::copy(sourceFile, targetFile);
     }
@@ -670,6 +681,10 @@ void SteamWorkshopLoader::recursiveFileCopier(QString sourcePath, QString target
             QString sourceFile = sourcePath + "/" + fileName;
             QString targetFile = targetPath + "/" + fileName;
 
+            if(QFile::exists(targetFile))
+            {
+                QFile::remove(targetFile);
+            }
 
             //copy the files.
             QFile::copy(sourceFile, targetFile);
